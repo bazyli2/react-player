@@ -1,3 +1,9 @@
+import { Slider } from "./Slider";
+
 export function Player() {
-  return <div>player</div>;
+  return (
+    <div>
+      <Slider />
+    </div>
+  );
 }

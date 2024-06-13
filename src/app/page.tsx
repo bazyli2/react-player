@@ -1,5 +1,9 @@
-import Image from "next/image";
+import { Player } from "@/components/Player";
 
 export default function Home() {
-  return <div>home page</div>;
+  return (
+    <main className="flex justify-center items-center h-full">
+      <Player />
+    </main>
+  );
 }
