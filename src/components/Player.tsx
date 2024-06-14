@@ -1,6 +1,10 @@
 import { Slider } from "./Slider";
 import Image from "next/image";
 import image from "./chilling-sunday.jpg";
+import { FastRewind } from "./icons/FastRewind";
+import { IconButton } from "./IconButton";
+import { FastForward } from "./icons/FastForward";
+import { Play } from "./icons/Play";
 
 export function Player() {
   return (
@@ -33,6 +37,17 @@ export function Player() {
         <span className="text-xs leading-5 tracking-wide text-slate-500">
           -3:20
         </span>
+      </div>
+      <div className="flex justify-center items-center">
+        <IconButton>
+          <FastRewind className="text-[35px]" />
+        </IconButton>
+        <IconButton>
+          <Play className="text-[42px]" />
+        </IconButton>
+        <IconButton>
+          <FastForward className="text-[35px]" />
+        </IconButton>
       </div>
     </div>
   );
