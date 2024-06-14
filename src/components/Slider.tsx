@@ -1,5 +1,6 @@
 "use client";
 
+import { ComponentProps } from "react";
 import {
   Label,
   Slider as AriaSlider,
@@ -8,9 +9,9 @@ import {
   SliderTrack,
 } from "react-aria-components";
 
-export function Slider() {
+export function Slider(props: ComponentProps<typeof AriaSlider>) {
   return (
-    <AriaSlider defaultValue={30}>
+    <AriaSlider {...props} defaultValue={30}>
       <div className="hidden">
         <Label className="flex-1">Opacity</Label>
         <SliderOutput />

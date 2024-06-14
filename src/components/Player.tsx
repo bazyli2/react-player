@@ -5,6 +5,8 @@ import { FastRewind } from "./icons/FastRewind";
 import { IconButton } from "./IconButton";
 import { FastForward } from "./icons/FastForward";
 import { Play } from "./icons/Play";
+import { VolumeDown } from "./icons/VolumeDown";
+import { VolumeUp } from "./icons/VolumeUp";
 
 export function Player() {
   return (
@@ -48,6 +50,11 @@ export function Player() {
         <IconButton>
           <FastForward className="text-[35px]" />
         </IconButton>
+      </div>
+      <div className="flex gap-4 items-center">
+        <VolumeDown />
+        <Slider className="flex-1" />
+        <VolumeUp />
       </div>
     </div>
   );
