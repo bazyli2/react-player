@@ -1,8 +1,24 @@
 import { Slider } from "./Slider";
+import Image from "next/image";
+import image from "./chilling-sunday.jpg";
 
 export function Player() {
   return (
-    <div>
+    <div className="p-4 rounded-2xl bg-black/60 max-w-80">
+      <div className="flex items-center gap-3">
+        <Image className="rounded-lg" {...image} height={100} width={100} />
+        <div className="overflow-hidden">
+          <h2 className="text-xs tracking-wide leading-7 font-medium block">
+            Jun Pulse
+          </h2>
+          <h3 className="text-base font-bold block leading-6 tracking-normal overflow-ellipsis overflow-hidden whitespace-nowrap">
+            คนเก่าเขาทำไว้ดี (Can't win)
+          </h3>
+          <h4 className="text-base tracking-tight overflow-ellipsis overflow-hidden whitespace-nowrap">
+            Chilling Sunday — คนเก่าเขาทำไว้ดี
+          </h4>
+        </div>
+      </div>
       <Slider />
     </div>
   );
