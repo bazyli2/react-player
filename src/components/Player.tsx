@@ -6,7 +6,13 @@ export function Player() {
   return (
     <div className="p-4 rounded-2xl bg-black/60 max-w-80">
       <div className="flex items-center gap-3">
-        <Image className="rounded-lg" {...image} height={100} width={100} />
+        <Image
+          alt="album cover"
+          className="rounded-lg"
+          {...image}
+          height={100}
+          width={100}
+        />
         <div className="overflow-hidden">
           <h2 className="text-xs tracking-wide leading-7 font-medium block">
             Jun Pulse
@@ -20,6 +26,14 @@ export function Player() {
         </div>
       </div>
       <Slider />
+      <div className="flex justify-between -mt-2">
+        <span className="text-xs leading-5 tracking-wide text-slate-500">
+          0:00
+        </span>
+        <span className="text-xs leading-5 tracking-wide text-slate-500">
+          -3:20
+        </span>
+      </div>
     </div>
   );
 }
