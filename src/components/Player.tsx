@@ -11,12 +11,15 @@ import { VolumeUp } from "./icons/VolumeUp";
 import { useEffect, useRef, useState } from "react";
 import { ToggleButton } from "react-aria-components";
 import { Pause } from "./icons/Pause";
+import { usePlayerStore } from "@/store";
 
 export function Player() {
   const url =
     "https://file-examples.com/storage/fed5266c9966708dcaeaea6/2017/11/file_example_MP3_5MG.mp3";
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const isPlaying = usePlayerStore((state) => state.isPlaying);
+  const setIsPlaying = usePlayerStore((state) => state.setIsPlaying);
+
   useEffect(() => {
     if (audioRef.current === null) return;
     if (isPlaying) {
