@@ -52,9 +52,9 @@ export function Player() {
         </IconButton>
       </div>
       <div className="flex gap-4 items-center">
-        <VolumeDown />
+        <VolumeDown className="text-2xl" />
         <Slider className="flex-1" />
-        <VolumeUp />
+        <VolumeUp className="text-2xl" />
       </div>
     </div>
   );
