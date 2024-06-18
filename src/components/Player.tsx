@@ -8,10 +8,11 @@ import { FastForward } from "./icons/FastForward";
 import { Play } from "./icons/Play";
 import { VolumeDown } from "./icons/VolumeDown";
 import { VolumeUp } from "./icons/VolumeUp";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ToggleButton } from "react-aria-components";
 import { Pause } from "./icons/Pause";
 import { usePlayerStore } from "@/store";
+import { TimeSlider } from "./TimeSlider";
 
 export function Player() {
   const url =
@@ -33,7 +34,7 @@ export function Player() {
   };
   return (
     <>
-      <div className="p-4 rounded-2xl bg-black/60 max-w-80">
+      <div className="p-4 rounded-2xl bg-black/60 w-full">
         <div className="flex items-center gap-3">
           <Image
             alt="album cover"
@@ -54,7 +55,7 @@ export function Player() {
             </h4>
           </div>
         </div>
-        <Slider />
+        <TimeSlider audioRef={audioRef} />
         <div className="flex justify-between -mt-2">
           <span className="text-xs leading-5 tracking-wide text-slate-500">
             0:00
