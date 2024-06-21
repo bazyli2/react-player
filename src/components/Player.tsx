@@ -29,8 +29,24 @@ export function Player() {
       audioRef.current.pause();
     }
   }, [isPlaying]);
+
   const toggleIsPlaying = (isPlaying: boolean) => {
     setIsPlaying(isPlaying);
+  };
+
+  const handleFastForward = () => {
+    if (audioRef.current === null) return;
+    audioRef.current.currentTime = Math.min(
+      audioRef.current.duration,
+      audioRef.current.currentTime + 15,
+    );
+  };
+  const handleFastRewind = () => {
+    if (audioRef.current === null) return;
+    audioRef.current.currentTime = Math.max(
+      0,
+      audioRef.current.currentTime - 15,
+    );
   };
   return (
     <>
@@ -65,7 +81,7 @@ export function Player() {
           </span>
         </div>
         <div className="flex justify-center items-center">
-          <IconButton>
+          <IconButton onPress={handleFastRewind}>
             <FastRewind className="text-[35px]" />
           </IconButton>
           <ToggleButton
@@ -75,7 +91,7 @@ export function Player() {
           >
             {({ isSelected }) => (isSelected ? <Pause /> : <Play />)}
           </ToggleButton>
-          <IconButton>
+          <IconButton onPress={handleFastForward}>
             <FastForward className="text-[35px]" />
           </IconButton>
         </div>
