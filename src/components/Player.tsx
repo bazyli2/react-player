@@ -36,9 +36,10 @@ export function Player() {
       <div className="p-4 rounded-2xl bg-black/60 w-full">
         <div className="flex items-center gap-3">
           <Image
+            priority
             alt="album cover"
             className="rounded-lg"
-            {...image}
+            src={image.src}
             height={100}
             width={100}
           />
