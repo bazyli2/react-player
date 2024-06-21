@@ -2,34 +2,19 @@
 import { Slider } from "./Slider";
 import Image from "next/image";
 import image from "./chilling-sunday.jpg";
-import { FastRewind } from "./icons/FastRewind";
 import { IconButton } from "./IconButton";
-import { FastForward } from "./icons/FastForward";
 import { VolumeDown } from "./icons/VolumeDown";
 import { VolumeUp } from "./icons/VolumeUp";
 import { useRef } from "react";
 import { TimeSlider } from "./TimeSlider";
 import { PlayPause } from "./PlayPause/PlayPause";
+import { FastRewind } from "./FastRewind";
+import { FastForward } from "./FastForward";
 
 export function Player() {
   const url =
     "https://file-examples.com/storage/fed5266c9966708dcaeaea6/2017/11/file_example_MP3_5MG.mp3";
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const handleFastForward = () => {
-    if (audioRef.current === null) return;
-    audioRef.current.currentTime = Math.min(
-      audioRef.current.duration,
-      audioRef.current.currentTime + 15,
-    );
-  };
-  const handleFastRewind = () => {
-    if (audioRef.current === null) return;
-    audioRef.current.currentTime = Math.max(
-      0,
-      audioRef.current.currentTime - 15,
-    );
-  };
 
   return (
     <>
@@ -65,13 +50,9 @@ export function Player() {
           </span>
         </div>
         <div className="flex justify-center items-center">
-          <IconButton onPress={handleFastRewind}>
-            <FastRewind className="text-[35px]" />
-          </IconButton>
+          <FastRewind audioRef={audioRef} />
           <PlayPause audioRef={audioRef} />
-          <IconButton onPress={handleFastForward}>
-            <FastForward className="text-[35px]" />
-          </IconButton>
+          <FastForward audioRef={audioRef} />
         </div>
         <div className="flex gap-4 items-center">
           <VolumeDown className="text-2xl" />
