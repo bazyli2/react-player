@@ -5,34 +5,16 @@ import image from "./chilling-sunday.jpg";
 import { FastRewind } from "./icons/FastRewind";
 import { IconButton } from "./IconButton";
 import { FastForward } from "./icons/FastForward";
-import { Play } from "./icons/Play";
 import { VolumeDown } from "./icons/VolumeDown";
 import { VolumeUp } from "./icons/VolumeUp";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ToggleButton } from "react-aria-components";
-import { Pause } from "./icons/Pause";
-import { usePlayerStore } from "@/store";
+import { useRef } from "react";
 import { TimeSlider } from "./TimeSlider";
+import { PlayPause } from "./PlayPause/PlayPause";
 
 export function Player() {
   const url =
     "https://file-examples.com/storage/fed5266c9966708dcaeaea6/2017/11/file_example_MP3_5MG.mp3";
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const isPlaying = usePlayerStore((state) => state.isPlaying);
-  const setIsPlaying = usePlayerStore((state) => state.setIsPlaying);
-
-  useEffect(() => {
-    if (audioRef.current === null) return;
-    if (isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  }, [isPlaying]);
-
-  const toggleIsPlaying = (isPlaying: boolean) => {
-    setIsPlaying(isPlaying);
-  };
 
   const handleFastForward = () => {
     if (audioRef.current === null) return;
@@ -48,6 +30,7 @@ export function Player() {
       audioRef.current.currentTime - 15,
     );
   };
+
   return (
     <>
       <div className="p-4 rounded-2xl bg-black/60 w-full">
@@ -84,13 +67,7 @@ export function Player() {
           <IconButton onPress={handleFastRewind}>
             <FastRewind className="text-[35px]" />
           </IconButton>
-          <ToggleButton
-            isSelected={isPlaying}
-            onChange={toggleIsPlaying}
-            className="text-[42px]"
-          >
-            {({ isSelected }) => (isSelected ? <Pause /> : <Play />)}
-          </ToggleButton>
+          <PlayPause audioRef={audioRef} />
           <IconButton onPress={handleFastForward}>
             <FastForward className="text-[35px]" />
           </IconButton>
