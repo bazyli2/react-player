@@ -11,7 +11,7 @@ import {
 
 export function Slider(props: ComponentProps<typeof AriaSlider<number>>) {
   return (
-    <AriaSlider<number> {...props} defaultValue={30}>
+    <AriaSlider<number> {...props}>
       <div className="hidden">
         <Label className="flex-1">Opacity</Label>
         <SliderOutput />
@@ -26,7 +26,9 @@ export function Slider(props: ComponentProps<typeof AriaSlider<number>>) {
               className="absolute h-1 top-[50%] translate-y-[-50%] rounded-full bg-white"
               style={{ width: state.getThumbPercent(0) * 100 + "%" }}
             />
-            <SliderThumb className="h-2 w-2 top-[50%] rounded-full cursor-pointer border border-solid border-purple-800/75 bg-white transition dragging:bg-purple-100 outline-none focus-visible:ring-2 ring-black pointer-events-auto" />
+            <SliderThumb className="p-2 pointer-events-auto cursor-pointer top-[50%]">
+              <div className="h-2 w-2 rounded-full border border-solid border-purple-800/75 bg-white transition dragging:bg-purple-100 outline-none focus-visible:ring-2 ring-black" />
+            </SliderThumb>
           </>
         )}
       </SliderTrack>
