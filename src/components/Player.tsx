@@ -10,10 +10,12 @@ import { TimeSlider } from "./TimeSlider";
 import { PlayPause } from "./PlayPause/PlayPause";
 import { FastRewind } from "./FastRewind";
 import { FastForward } from "./FastForward";
+import { CurrentTime } from "./CurrentTime";
+import { RemainingTime } from "./RemainingTime";
 
 export function Player() {
   const url =
-    "https://file-examples.com/storage/fed5266c9966708dcaeaea6/2017/11/file_example_MP3_5MG.mp3";
+    "https://dn720001.ca.archive.org/0/items/rammstein_flac_201905/Rammstein%20-%20Wollt%20ihr%20das%20Bett%20in%20Flammen%20sehen.mp3";
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   return (
@@ -24,30 +26,26 @@ export function Player() {
             priority
             alt="album cover"
             className="rounded-lg"
-            src={image.src}
+            src="https://upload.wikimedia.org/wikipedia/en/1/1f/Rammstein_Herzeleid_cover.jpg"
             height={100}
             width={100}
           />
           <div className="overflow-hidden">
             <h2 className="text-xs tracking-wide leading-7 font-medium block">
-              Jun Pulse
+              Rammstein
             </h2>
             <h3 className="text-base font-bold block leading-6 tracking-normal overflow-ellipsis overflow-hidden whitespace-nowrap">
-              คนเก่าเขาทำไว้ดี (Can&apos;t win)
+              Wohlt ihr das Bett in Flammen sehen
             </h3>
             <h4 className="text-base tracking-tight overflow-ellipsis overflow-hidden whitespace-nowrap">
-              Chilling Sunday — คนเก่าเขาทำไว้ดี
+              Herzlied
             </h4>
           </div>
         </div>
         <TimeSlider audioRef={audioRef} />
         <div className="flex justify-between -mt-2">
-          <span className="text-xs leading-5 tracking-wide text-slate-500">
-            0:00
-          </span>
-          <span className="text-xs leading-5 tracking-wide text-slate-500">
-            -3:20
-          </span>
+          <CurrentTime audioRef={audioRef} />
+          <RemainingTime audioRef={audioRef} />
         </div>
         <div className="flex justify-center items-center">
           <FastRewind audioRef={audioRef} />
@@ -60,7 +58,7 @@ export function Player() {
           <VolumeUp className="text-2xl" />
         </div>
       </div>
-      <audio src={url} ref={audioRef} />
+      <audio src={url} ref={audioRef} preload="metadata" />
     </>
   );
 }
