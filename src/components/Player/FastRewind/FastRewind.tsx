@@ -1,6 +1,6 @@
 import { RefObject } from "react";
-import { IconButton } from "../IconButton";
 import { FastRewindIcon } from "./FastRewindIcon";
+import { IconButton } from "@/components/IconButton";
 
 export function FastRewind(props: Props) {
   const handlePress = () => {

@@ -1,6 +1,6 @@
 import { RefObject } from "react";
-import { IconButton } from "../IconButton";
 import { FastForwardIcon } from "./FastForwardIcon";
+import { IconButton } from "@/components/IconButton";
 
 export function FastForward(props: Props) {
   const handlePress = () => {

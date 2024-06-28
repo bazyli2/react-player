@@ -1,17 +1,17 @@
 "use client";
-import { Slider } from "./Slider";
+import { Slider } from "../Slider";
 import Image from "next/image";
 import image from "./chilling-sunday.jpg";
-import { IconButton } from "./IconButton";
-import { VolumeDown } from "./icons/VolumeDown";
-import { VolumeUp } from "./icons/VolumeUp";
+import { IconButton } from "../IconButton";
+import { VolumeDown } from "../icons/VolumeDown";
+import { VolumeUp } from "../icons/VolumeUp";
 import { useRef } from "react";
 import { TimeSlider } from "./TimeSlider";
-import { PlayPause } from "./PlayPause/PlayPause";
-import { FastRewind } from "./FastRewind";
 import { FastForward } from "./FastForward";
 import { CurrentTime } from "./CurrentTime";
 import { RemainingTime } from "./RemainingTime";
+import { FastRewind } from "./FastRewind";
+import { PlayPause } from "./PlayPause";
 
 export function Player() {
   const url =

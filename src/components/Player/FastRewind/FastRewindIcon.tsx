@@ -1,5 +1,5 @@
+import { SVGIcon } from "@/components/SVGIcon";
 import { ComponentProps } from "react";
-import { SVGIcon } from "../SVGIcon";
 
 export function FastRewindIcon(props: ComponentProps<"svg">) {
   return (
