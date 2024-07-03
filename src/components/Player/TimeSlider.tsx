@@ -2,7 +2,7 @@ import { RefObject, useLayoutEffect, useRef, useState } from "react";
 import { usePlayerStore } from "@/store";
 import {
   Label,
-  Slider as AriaSlider,
+  Slider,
   SliderOutput,
   SliderThumb,
   SliderTrack,
@@ -50,7 +50,7 @@ export function TimeSlider(props: Props) {
   };
 
   return (
-    <AriaSlider<number>
+    <Slider<number>
       value={progress}
       maxValue={MAX_VALUE}
       onChange={handleChange}
@@ -76,7 +76,7 @@ export function TimeSlider(props: Props) {
           </>
         )}
       </SliderTrack>
-    </AriaSlider>
+    </Slider>
   );
 }
 
