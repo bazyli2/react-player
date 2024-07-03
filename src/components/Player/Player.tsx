@@ -1,8 +1,5 @@
 "use client";
-import { Slider } from "../Slider";
 import Image from "next/image";
-import image from "./chilling-sunday.jpg";
-import { IconButton } from "../IconButton";
 import { VolumeDown } from "../icons/VolumeDown";
 import { VolumeUp } from "../icons/VolumeUp";
 import { useRef } from "react";

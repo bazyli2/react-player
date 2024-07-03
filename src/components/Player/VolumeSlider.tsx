@@ -20,9 +20,9 @@ export function VolumeSlider(props: Props) {
       onChange={setVolume}
       maxValue={1}
       step={0.001}
-      {...props}
+      {...rest}
     >
-      <div className="flex text-white hidden">
+      <div className="text-white hidden">
         <Label className="flex-1">Volume</Label>
         <SliderOutput />
       </div>
