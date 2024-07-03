@@ -12,6 +12,7 @@ import { CurrentTime } from "./CurrentTime";
 import { RemainingTime } from "./RemainingTime";
 import { FastRewind } from "./FastRewind";
 import { PlayPause } from "./PlayPause";
+import { VolumeSlider } from "./VolumeSlider";
 
 export function Player() {
   const url =
@@ -54,7 +55,7 @@ export function Player() {
         </div>
         <div className="flex gap-4 items-center">
           <VolumeDown className="text-2xl" />
-          <Slider className="flex-1" />
+          <VolumeSlider audioRef={audioRef} className="flex-1" />
           <VolumeUp className="text-2xl" />
         </div>
       </div>
